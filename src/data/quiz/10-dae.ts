@@ -1,0 +1,122 @@
+import type { Question } from '../../lib/quiz'
+
+const o = (...texts: string[]) => texts.map((text, i) => ({ id: 'abcdefg'[i], text }))
+
+const questions: Question[] = [
+  {
+    id: 's10-q1',
+    prompt: 'Arresto cardiaco improvviso e attacco cardiaco sono la stessa cosa?',
+    options: o('Vero', 'Falso'),
+    answer: ['b'],
+    explain: 'L’attacco cardiaco (infarto) è l’occlusione di una o più coronarie e non è necessariamente letale; l’ACI è il cuore che smette di battere all’improvviso per un’anomalia elettrica come la FV. L’infarto può esserne una causa.',
+    page: '81',
+  },
+  {
+    id: 's10-q2',
+    prompt: 'Quali di questi sono segni premonitori di un arresto cardiaco dovuto a infarto? (Indica tutte le voci pertinenti.)',
+    options: o('Forte senso di pressione al centro del torace, dietro lo sterno', 'Dolore e fastidio a spalla, braccio, collo o mascella', 'Insufficienza respiratoria', 'Sudorazione', 'Nausea e vomito', 'Negazione', 'Tutte le precedenti'),
+    answer: ['g'],
+    explain: 'Il testo elenca oppressione dietro lo sterno, dolore a spalla, braccio, collo o mandibola, difficoltà di respiro, sudorazione, nausea e vomito, oltre all’intensa difficoltà digestiva. La “negazione” compare solo fra le opzioni della domanda, non nell’elenco della sezione.',
+    page: '82',
+  },
+  {
+    id: 's10-q3',
+    prompt: 'Se la defibrillazione viene eseguita nei primi minuti dall’inizio della fibrillazione ventricolare, la persona ha un tasso molto alto di ______.',
+    options: o('Mortalità', 'Sopravvivenza', 'Disabilità permanente'),
+    answer: ['b'],
+    explain: 'Con la defibrillazione precoce il tasso di sopravvivenza è molto alto; ogni minuto di ritardo lo riduce del 7-10%.',
+    page: '83',
+  },
+  {
+    id: 's10-q4',
+    prompt: 'Qual è l’ordine corretto dei 4 anelli della catena di sopravvivenza?',
+    options: o(
+      'RCP precoce, Accesso allo SME e Riconoscimento precoce, ALS precoce, Defibrillazione precoce',
+      'ALS precoce, Defibrillazione precoce, RCP precoce, Accesso allo SME e Riconoscimento precoce',
+      'Accesso allo SME e Riconoscimento precoce, RCP precoce, Defibrillazione precoce, ALS precoce',
+    ),
+    answer: ['c'],
+    explain: 'Gli anelli sono, nell’ordine: riconoscimento e accesso precoce al SME, RCP precoce, defibrillazione precoce e ALS precoce.',
+    page: '85–86',
+  },
+  {
+    id: 's10-q5',
+    prompt: 'In quali casi bisogna continuare la RCP? (Indica tutte le voci pertinenti.)',
+    options: o('Fino all’arrivo del DAE', 'Dopo 2 shock consecutivi senza risposta', 'Dopo 1 shock senza esito', 'Dopo l’avviso di shock non indicato, se la vittima non respira normalmente', 'A, C e D sono corrette'),
+    answer: ['e'],
+    explain: 'La RCP prosegue fino all’arrivo del DAE, dopo uno shock senza risposta e dopo l’avviso di shock non erogabile se la vittima non respira normalmente. Si riprende dopo ogni singolo shock, non dopo due.',
+    page: '86, 88',
+  },
+  {
+    id: 's10-q6',
+    prompt: 'Prima di erogare uno shock con il DAE, che cosa va verificato?',
+    options: o('La carica della batteria', 'La scadenza delle placche adesive', 'La sicurezza dello scenario e che tutti, soccorritore compreso, siano abbastanza lontani dalla vittima'),
+    answer: ['c'],
+    explain: 'Prima della scarica ci si accerta che nessuno tocchi la vittima, controllandola dalla testa ai piedi e dichiarando «Via io, via voi, via tutti».',
+    page: '87, 91',
+  },
+  {
+    id: 's10-q7',
+    prompt: 'Mentre un altro soccorritore prepara il DAE, quale rapporto fra compressioni e ventilazioni usa chi esegue la RCP?',
+    options: o('5:1', '15:1', '30:2', '5:2'),
+    answer: ['c'],
+    explain: 'La RCP si esegue con rapporto 30:2 e, se i soccorritori sono più di uno, continua mentre si collegano gli elettrodi.',
+    page: '86, 87',
+  },
+  {
+    id: 's10-q8',
+    prompt: 'Per applicare gli elettrodi a una persona in arresto cardiaco bisogna denudare il torace e assicurarsi che sia ______.',
+    options: o('Asciutto', 'Pulito', 'Libero da ostacoli (per esempio indumenti)', 'Tutte le precedenti'),
+    answer: ['d'],
+    explain: 'Il torace va scoperto (tagliando gli indumenti se serve), asciugato e pulito, e liberato da ogni oggetto che ostacoli il contatto degli elettrodi.',
+    page: '86, 91',
+  },
+  {
+    id: 's10-q9',
+    prompt: 'Un elettrodo va sulla parte alta del torace, subito sotto la clavicola destra, a lato dello sterno. Dove va l’altro?',
+    options: o('Sul lato sinistro del torace, subito sotto il muscolo pettorale (uomo) o subito sotto la mammella (donna)', 'Sotto l’elettrodo destro', 'Sul lato sinistro, in posizione speculare all’elettrodo destro'),
+    answer: ['a'],
+    explain: 'Il secondo elettrodo si applica sul fianco sinistro del torace, appena sotto il pettorale nell’uomo o la mammella nella donna (linea ascellare mediana sinistra).',
+    page: '87, 89',
+  },
+  {
+    id: 's10-q10',
+    prompt: 'Per garantire un buon contatto, gli elettrodi vanno tenuti premuti sul torace del paziente durante lo shock.',
+    options: o('Vero', 'Falso'),
+    answer: ['b'],
+    explain: 'Gli elettrodi si premono con il palmo solo al momento dell’applicazione; durante l’analisi e la scarica nessuno deve toccare la vittima.',
+    page: '87, 91',
+  },
+  {
+    id: 's10-q11',
+    prompt: 'Dopo che il DAE ha erogato uno shock bisogna ricominciare la RCP.',
+    options: o('Vero', 'Falso'),
+    answer: ['a'],
+    explain: 'Appena erogata la scarica si riprende immediatamente la RCP 30:2 per 2 minuti.',
+    page: '87, 88',
+  },
+  {
+    id: 's10-q12',
+    prompt: 'Una parte dei problemi che si incontrano con i DAE riguarda gli elettrodi. Quali sono fra i più comuni?',
+    options: o('Segni di danneggiamento', 'Contatto scarso a causa dei peli', 'Torace non asciutto', 'Tutte le precedenti'),
+    answer: ['d'],
+    explain: 'Fra i problemi più comuni degli elettrodi il testo elenca il danneggiamento di elettrodi o cavi, la peluria e la pelle bagnata.',
+    page: '93',
+  },
+  {
+    id: 's10-q13',
+    prompt: 'I DAE sono progettati per richiedere una manutenzione minima. Che cosa bisogna controllare?',
+    options: o(
+      'L’indicatore di carica delle batterie e di efficienza del dispositivo (variabile secondo il modello)',
+      'La data di scadenza degli elettrodi e della batteria, per essere certi che siano pronti all’uso',
+      'I componenti aggiuntivi del kit, perché ci sia tutto il necessario',
+      'La data di scadenza della garanzia fornita dal costruttore',
+      'Tutte le risposte precedenti sono corrette',
+    ),
+    answer: ['e'],
+    explain: 'La sezione chiede di controllare avvisi e carica della batteria, scadenza di elettrodi e batteria e dotazioni di base, seguendo sempre le indicazioni del costruttore. La scadenza della garanzia è citata solo nella domanda, non nel testo della sezione.',
+    page: '90–91',
+  },
+]
+
+export default questions

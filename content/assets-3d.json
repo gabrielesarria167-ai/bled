@@ -1,0 +1,110 @@
+[
+  {
+    "file": "models/heart.glb",
+    "title": "Realistic Human Heart",
+    "author": "neshallads",
+    "authorUrl": "https://sketchfab.com/neshallads",
+    "sourceUrl": "https://sketchfab.com/3d-models/realistic-human-heart-3f8072336ce94d18b3d0d055a1ece089",
+    "license": "CC-BY-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sizeBytes": 3255284,
+    "triangles": 22562,
+    "notes": "Realistic external view of the heart with great vessels and coronary vessels, photoreal wet-tissue PBR textures (1k GLB variant). Single mesh, single material 'Heart_Tex', no animation, no separable parts. Scale/orientation not checked in a viewer: normalise the bounding box on load."
+  },
+  {
+    "file": "models/heart-section.glb",
+    "title": "Human Heart Internal Structure 3D Model",
+    "author": "Haiqa Arif",
+    "authorUrl": "https://sketchfab.com/ansarihaiqaarif",
+    "sourceUrl": "https://sketchfab.com/3d-models/human-heart-internal-structure-3d-model-21d346f72230432e8ed5fe448b03cca5",
+    "license": "CC-BY-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sizeBytes": 28104084,
+    "triangles": 499990,
+    "notes": "Textbook-style cut-away heart: chambers, valves, septum, red arteries / blue veins, yellow fat. HEAVY: 28 MB and ~500k triangles (over the 15 MB budget, kept because it is the only good educational cross-section found). Compress (Draco/meshopt + simplify) or lazy-load before shipping. 5 unnamed meshes (Object_4..8) sharing one AI-generated (Tripo) material, so parts are not individually labelled. No animation."
+  },
+  {
+    "file": "models/lungs.glb",
+    "title": "Realistic Human Lungs",
+    "author": "neshallads",
+    "authorUrl": "https://sketchfab.com/neshallads",
+    "sourceUrl": "https://sketchfab.com/3d-models/realistic-human-lungs-ce09f4099a68467880f46e61eb9a3531",
+    "license": "CC-BY-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sizeBytes": 7630236,
+    "triangles": 63974,
+    "notes": "Both lungs with trachea, larynx and thyroid, realistic PBR textures (1k GLB variant), same author/style as heart.glb. Two meshes (part01, part02) with two materials; no animation. Uses KHR_materials_specular. External view only, bronchial tree is not visible inside the lungs."
+  },
+  {
+    "file": "models/torso.glb",
+    "title": "Male base mesh with muscle detail",
+    "author": "C.J..Goldman",
+    "authorUrl": "https://sketchfab.com/C.J..Goldman",
+    "sourceUrl": "https://sketchfab.com/3d-models/male-base-mesh-with-muscle-detail-244061a0323b4d2e9c60d9aba374c937",
+    "license": "CC-BY-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sizeBytes": 1601572,
+    "triangles": 12686,
+    "notes": "Full adult male body, standing A-pose, neutral grey-blue sculpt look, clear pectoral/sternum landmarks for compression point and AED pad placement. Not anatomically explicit. Single mesh (Object_2), one material, not rigged, no animation: it is standing, so rotate -90 deg on X to lay it supine for the CPR scene. Crop/clip to the torso in the viewer if only the chest is needed."
+  },
+  {
+    "file": "models/torso-alt.glb",
+    "title": "Male Body",
+    "author": "Alexander Antipov",
+    "authorUrl": "https://sketchfab.com/Dessen",
+    "sourceUrl": "https://sketchfab.com/3d-models/male-body-15a422001834483c9750ce6117d59cc1",
+    "license": "CC-BY-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sizeBytes": 1580548,
+    "triangles": 20764,
+    "notes": "Second candidate: realistic-proportion adult male base mesh, standing A-pose, clean quad topology. No textures (single 'lambert1' material), so it takes any flat colour. Nude base mesh with modelled genitalia: frame from the waist up or clip the lower body. Not rigged, no animation."
+  },
+  {
+    "file": "models/aed.glb",
+    "title": "IPAD SP1 Automated External Defibrillator – AED",
+    "author": "R3D Reality",
+    "authorUrl": "https://sketchfab.com/redonemart",
+    "sourceUrl": "https://sketchfab.com/3d-models/ipad-sp1-automated-external-defibrillator-aed-faff5cbba8734373bed35e00291bf9a1",
+    "license": "CC-BY-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sizeBytes": 1144616,
+    "triangles": 4896,
+    "notes": "Semi-automatic public-access AED (CU Medical i-PAD SP1): white case, front panel with pad-placement diagram, numbered steps 1-2-3, green power button, orange shock button, pad connector plug with a short cable stub. 2k GLB variant so the panel artwork stays legible. Named parts (Dutch): AED (body), Buttons, Stekker (plug), Snoertje (cable). No electrode pads and no animation: pads must be modelled as simple quads in the scene. Real product branding is visible."
+  },
+  {
+    "file": "models/cpr-hands.glb",
+    "title": "CPR-Guide",
+    "author": "XR Associates Malaysia",
+    "authorUrl": "https://sketchfab.com/thexra",
+    "sourceUrl": "https://sketchfab.com/3d-models/cpr-guide-75c8a6cca2294bbe8c4cf9f7ed1d1732",
+    "license": "CC-BY-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sizeBytes": 334460,
+    "triangles": 13492,
+    "notes": "Two overlapped hands in chest-compression position on a pink disc that stands in for the chest. Includes 1 animation clip ('Scene', 3 channels) with the push-down compression motion. 3 meshes: Cylinder (disc) and two hands; flat colour materials, no textures. Hide the Cylinder node to reuse the hands on top of torso.glb."
+  },
+  {
+    "file": "models/first-aid-kit.glb",
+    "title": "Medical First Aid Emergency Kit",
+    "author": "RayznGames",
+    "authorUrl": "https://sketchfab.com/Rayzngames",
+    "sourceUrl": "https://sketchfab.com/3d-models/medical-first-aid-emergency-kit-d588fee3c3a94c0d82884c2fc1505e9c",
+    "license": "CC-BY-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sizeBytes": 5033700,
+    "triangles": 48278,
+    "notes": "Open orange first-aid case filled with supplies (bandage rolls, cotton, scissors, syringe, creams, pill flasks). Slightly stylised game-prop look. 43 named meshes (MetalBox, MetalCover, BandAidRoll, Cotton, Scissor1, Syringe, PillFlask, ...) sharing one material (1k GLB variant). Uses KHR_materials_transmission and KHR_materials_specular. Decorative only: contents are generic, not a BLS-D kit."
+  },
+  {
+    "file": "models/skeleton.glb",
+    "title": "Male Skeleton",
+    "author": "projectkaizen",
+    "authorUrl": "https://sketchfab.com/project_kaizen",
+    "sourceUrl": "https://sketchfab.com/3d-models/male-skeleton-11b57ebfcf6c4e3b88d0cbe618ee70a7",
+    "license": "CC-BY-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "sizeBytes": 6056492,
+    "triangles": 67540,
+    "notes": "Full adult male skeleton, standing A-pose (similar pose to torso.glb, but alignment between the two is not verified). 14 meshes split by material, usable to isolate the thorax: Ribs, Sternum, RibCartilage, Spine, Discs, plus ArmsHands, HipsLegs, Sacrum, HipCartilage, Hyoid, Cranium, UpperTeeth (mesh nodes are named Object_6..19, select by material name). Has 1 skin (rigged), no animation clips. 1k GLB variant."
+  }
+]

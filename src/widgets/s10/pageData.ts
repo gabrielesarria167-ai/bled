@@ -1,0 +1,73 @@
+import type { Fact } from '../../components/ui'
+
+/** The manual's figure "BLSD: algoritmo utilizzo del DAE su un adulto" (pp. 89–90): a straight sequence, no branches. */
+export const FIGURE_STEPS: { title: string; body: string }[] = [
+  { title: 'Accendi subito il DAE', body: 'Apri il coperchio o premi il pulsante di accensione, secondo il modello. Il DAE sta a terra, accanto alla testa della vittima.' },
+  { title: 'Scopri il torace', body: 'Rimuovi gli indumenti; se serve, tagliali con le forbici.' },
+  { title: 'Rasa i peli, se e dove necessario', body: 'Con un rasoio monouso, sulle zone dove vanno gli elettrodi.' },
+  { title: 'Asciuga e pulisci il torace', body: 'Con un telino.' },
+  { title: 'Preleva una placca alla volta', body: 'Ogni placca porta il suo pittogramma.' },
+  { title: 'Attacca le placche come nel pittogramma', body: 'Falle aderire bene con il palmo della mano: premi forte.' },
+  { title: 'Posiziona le placche in modo ottimale', body: 'Un posizionamento ottimale aumenta l’efficacia della defibrillazione: una sotto la clavicola destra, l’altra sulla linea ascellare mediana sinistra.' },
+  { title: 'Non toccare la vittima durante la scarica e l’analisi del ritmo', body: 'Di’ «Allontanatevi. Via io, via voi, via tutti» e tieni le braccia aperte per tenere lontani gli altri.' },
+  { title: 'Eroga la scarica appena il DAE lo richiede', body: 'Premi il pulsante di scarica. Un DAE interamente automatico eroga lo shock da solo, dopo un breve preavviso.' },
+]
+
+/** Table B of the spec: the decision flow behind the simulator. */
+export const ALGO: { n: string; name: string; when: string; act: string; next: string }[] = [
+  { n: '0', name: 'Sicurezza', when: 'Scena da valutare.', act: 'Verifica che soccorritore, vittima e astanti siano al sicuro.', next: '1' },
+  { n: '1', name: 'Valutazione', when: 'Vittima incosciente o che non respira normalmente.', act: 'Chiedi aiuto: fai chiamare il 112/118 e fai portare un DAE; se sei solo, chiama con il cellulare in vivavoce.', next: '2' },
+  { n: '2', name: 'RCP in attesa del DAE', when: 'DAE non ancora disponibile.', act: 'RCP 30:2 (30 compressioni, 2 ventilazioni). Eccezione: se sei solo, sei stato testimone dell’evento e il DAE è nelle immediate vicinanze, comincia collegando il dispositivo.', next: '3, quando arriva il DAE' },
+  { n: '3', name: 'Accensione', when: 'DAE disponibile.', act: 'Accendilo subito (coperchio o pulsante di accensione, secondo il modello). Con più soccorritori la RCP continua durante la preparazione.', next: '4' },
+  { n: '4', name: 'Preparare il torace', when: '«Scoprire il torace».', act: 'Rimuovi o taglia gli indumenti; rasa i peli se e dove necessario; asciuga e pulisci il torace.', next: '5' },
+  { n: '5', name: 'Applicare gli elettrodi', when: '«Applicare gli elettrodi».', act: 'Apri la confezione sigillata, preleva una placca alla volta e applicale premendo forte con il palmo: una sotto la clavicola destra a lato dello sterno, l’altra sul fianco sinistro (linea ascellare mediana sinistra), sotto il pettorale o la mammella. Verifica il collegamento al DAE.', next: '6, appena gli elettrodi sono collegati' },
+  { n: '6', name: 'Analisi', when: '«Analisi del ritmo in corso»: parte da sola.', act: 'Nessuna persona e nessuna attrezzatura a contatto con la vittima; ferma ogni movimento.', next: '7a se il ritmo è defibrillabile (FV/TVSP), 7b se non lo è' },
+  { n: '7a', name: 'Shock consigliato', when: '«Shock consigliato».', act: 'Controlla la vittima dalla testa ai piedi e dichiara «Via io, via voi, via tutti» (oppure «Tutti via, allontanatevi»).', next: '8' },
+  { n: '8', name: 'Scarica', when: 'Semiautomatico: «Premere il pulsante di scarica». Automatico: preavviso di alcuni secondi, poi scarica da solo.', act: 'Semiautomatico: premi il pulsante appena richiesto. Automatico: non premere nulla. In entrambi i casi nessuno tocca la vittima.', next: '9' },
+  { n: '7b', name: 'Shock non consigliato', when: '«Non è richiesta nessuna scarica».', act: 'Nessuna scarica.', next: '9' },
+  { n: '9', name: 'RCP per 2 minuti', when: '«Riprendere la RCP».', act: 'Riprendi immediatamente la RCP 30:2 per 2 minuti seguendo i comandi vocali e visivi: il DAE scandisce i tempi.', next: '6 (nuova analisi automatica dopo 2 minuti), oppure 10, 11 o 12' },
+  { n: '10', name: 'Respiro ripreso', when: 'La vittima riprende a respirare normalmente.', act: 'Se necessario posizione laterale di sicurezza; DAE collegato e acceso; continua a controllare la respirazione e le eventuali nuove indicazioni.', next: '6 se il DAE dà nuove indicazioni; 11 all’arrivo dell’ALS' },
+  { n: '11', name: 'Passaggio al SME', when: 'Arriva il soccorso più qualificato (ALS).', act: 'Prosegui la RCP se te lo chiedono; DAE acceso e collegato; riferisci natura dell’evento, condizioni iniziali, manovre effettuate, condizioni attuali e tempo stimato dall’arresto.', next: 'Fine' },
+  { n: '12', name: 'Esaurimento', when: 'Il soccorritore è esausto.', act: 'Interruzione: è la terza condizione di termine prevista dal manuale.', next: 'Fine' },
+]
+
+/** Every number of the spec's "Dati chiave". */
+export const KEY_FACTS: Fact[] = [
+  { label: 'Cuore a destra e a sinistra dello sterno', value: '1/3 e 2/3', note: 'Posizione obliqua.' },
+  { label: 'Frequenza cardiaca media a riposo', value: '70-75 bpm' },
+  { label: 'Gittata sistolica', value: '≈ 70 mL', note: 'Per ogni contrazione.' },
+  { label: 'Gittata cardiaca', value: '≈ 5 L/min', note: '0,07 L × 70 bpm: all’incirca l’intero volume di sangue.' },
+  { label: 'Gittata cardiaca in attività', value: '×2 o ×3' },
+  { label: 'Sezioni del cuore', value: '2', note: 'Ciascuna con 2 camere: atrio e ventricolo.' },
+  { label: 'Cause di aritmia elencate', value: '8' },
+  { label: 'ACI in Italia ogni anno', value: '> 60.000', note: 'Persone colpite, fonte IRC.' },
+  { label: 'Vittime di arresto cardiaco in Europa', value: '≈ 400.000', note: 'Fonte ERC.' },
+  { label: 'Decessi cardiovascolari da morte cardiaca improvvisa', value: '60-70%' },
+  { label: 'Picco di incidenza', value: '45-75 anni', note: 'Con netta prevalenza maschile.' },
+  { label: 'Fattori di rischio elencati', value: '14' },
+  { label: 'Segni premonitori elencati', value: '6' },
+  { label: 'Gruppi di ritmi dell’arresto', value: '2', note: 'Defibrillabili: FV e TVSP. Non defibrillabili: AESP/PEA e asistolia.' },
+  { label: 'Pausa del pacemaker intrinseco con lo shock', value: 'millisecondi' },
+  { label: 'Ogni minuto di ritardo nella defibrillazione', value: '−7-10%', note: 'Di possibilità di sopravvivenza.' },
+  { label: 'Sopravvivenza a lungo termine nella FV/TVSP', value: 'fino al 40%', note: 'Con RCP pronta, defibrillazione precoce e cure rapide e specializzate (AHA, ILCOR).' },
+  { label: 'Dopo «non è richiesta nessuna scarica»', value: '2 min', note: 'Nuove istruzioni alla successiva analisi.' },
+  { label: 'Preavviso del DAE completamente automatico', value: 'pochi secondi' },
+  { label: 'Anelli della catena di sopravvivenza', value: '4' },
+  { label: 'Sistema nervoso centrale senza flusso', value: '4-5 min', note: 'Poi i tessuti cominciano a morire.' },
+  { label: 'Durata della FV prima dell’asistolia', value: 'pochi minuti' },
+  { label: 'Dopo shock senza risposta o shock non erogabile', value: '2 min', note: 'Di RCP, poi nuova analisi automatica.' },
+  { label: 'Numero unico di emergenza', value: '112/118' },
+  { label: 'Elettrodi', value: '2', note: 'Sotto la clavicola destra a lato dello sterno; sul fianco sinistro, sotto il pettorale o la mammella (linea ascellare mediana sinistra).' },
+  { label: 'Compressioni e ventilazioni', value: '30:2' },
+  { label: 'Tolleranza sulla posizione degli elettrodi', value: 'qualche cm' },
+  { label: 'Dopo 1 singolo shock, prima di un altro', value: '2 min', note: 'Di RCP 30:2.' },
+  { label: 'Dati del rapporto al personale ALS', value: '5' },
+  { label: 'Maschera a ossigeno dal torace', value: '≥ 1 m', note: 'Durante la defibrillazione.' },
+  { label: 'Ipotermia: temperatura corporea interna', value: '< 30 °C' },
+  { label: 'DAE standard', value: '> 8 anni' },
+  { label: 'Elettrodi o modalità pediatrica', value: '1-8 anni' },
+  { label: 'Sotto 1 anno', value: 'molto raro', note: 'Accettabile quando non ci sono altre opzioni.' },
+  { label: 'Elettrodi da pacemaker o ICD', value: '≥ 8 cm' },
+  { label: 'Radio e cellulari dall’unità DAE', value: '≥ 2 m', note: 'Circa 6 piedi.' },
+  { label: 'Energia dello shock in joule', value: 'non indicata', note: 'Il manuale non riporta valori.' },
+]
